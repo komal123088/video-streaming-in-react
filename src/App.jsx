@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import TopBar from "./components/TopBar";
 import SideBar from "./components/SideBar";
@@ -21,7 +21,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <Router>
       <div className="app">
         <TopBar toggleSidebar={toggleSidebar} />
         <div className="app-body">
@@ -36,11 +36,12 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/watch/:id" element={<WatchPage />} />
+              <Route path="*" element={<HomePage />} />
             </Routes>
           </div>
         </div>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
